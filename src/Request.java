@@ -23,8 +23,7 @@ public class Request {
             while((headerLine = br.readLine()).length()!=0){
                 System.out.println(headerLine);
             }
-            uri = ParseURI(requestLine);
-            System.out.println("uri是："+ uri);
+
             //从行中提取文件名
             StringTokenizer tokens = new StringTokenizer(requestLine);
             tokens.nextToken();
@@ -49,21 +48,4 @@ public class Request {
             return null;
         }
     }
-
-    //获取uri信息
-    private String ParseURI(String RequsetStr){
-        int index1, index2;
-        index1 = RequsetStr.indexOf(' ');
-        if (index1 != -1) {
-            index2 = RequsetStr.indexOf(' ', index1 + 1);
-            if (index2 > index1)
-                return RequsetStr.substring(index1 + 1, index2);
-        }
-        return null;
-    }
-    public String getUri(){
-        return uri;
-    }
-
-
 }
