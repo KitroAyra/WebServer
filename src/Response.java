@@ -2,7 +2,7 @@ import java.io.*;
 
 public class Response {
     //定义换行和输出流
-    final static private String CRLF = "/r/n";
+    final static private String CRLF = "\r\n";
     private OutputStream outputStream = null;
     private FileInputStream fis = null;
     private String fileName = null;
@@ -28,7 +28,7 @@ public class Response {
         //正确读取的头信息
         if(fis != null){
             statusLine = "HTTP/1.1 200 OK" + CRLF;
-            contentTypeLine = "Content-type:" + contentType(fileName) + CRLF;
+            contentTypeLine = "Content-Type:" + contentType(fileName) + CRLF;
             exitflag = true;
         }
         //错误读取的头信息
